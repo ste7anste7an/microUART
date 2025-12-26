@@ -1,19 +1,17 @@
 module microuart
 author Ste7an
 version 1 0 
-description 'Communication library with MicroBlocks using the hubs
-UARTDevice.'
-variables time 
+description 'Lightweigt Communication library with PyBricks UARTDevice devices.'
 
-  spec 'r' '_encode' 'encode _ data _' 'auto auto' 10 '10'
-  spec 'r' '_read serial' 'read serial'
-  spec 'r' '_decode' 'decode _' 'auto' '10'
-  spec 'r' 'call' 'call _ data _' 'auto auto' '10' '10'
-  spec 'r' '_receive command' 'receive command'
-  spec ' ' '_send command' 'send command _ data _' 'auto auto' '10' '10'
-  spec ' ' 'process' 'process'
-  spec ' ' 'flush' 'flush'
   spec ' ' 'init' 'init'
+  spec 'r' 'call' 'call _ data _' 'str str' 'function' 'list with data'
+  spec ' ' 'process' 'process'
+  spec 'r' '_encode' 'encode _ data _' 'str str' 'cmd' 'list with data'
+  spec 'r' '_read serial' 'read serial'
+  spec 'r' '_decode' 'decode _' 'str' 'bytearray'
+  spec 'r' '_receive command' 'receive command'
+  spec ' ' '_send command' 'send command _ data _' 'str str' 'cmd' 'list with data'
+  spec ' ' '_flush' 'flush'
 
 to '_decode' encoded {
   local 'tot_len' (size encoded)
@@ -86,6 +84,13 @@ to '_encode' cmd list {
   return all_bytes
 }
 
+to '_flush' {
+  local 'temp' 0
+  repeatUntil (('[serial:available]') > 0) {
+    temp = ('[serial:read]')
+  }
+}
+
 to '_read serial' {
   local 'byte' 0
   local 'PREAMBLE' ('[data:asByteArray]' '<$MU')
@@ -155,13 +160,6 @@ to '_send command' cmd data {
 to call cmd data {
   '_send command' cmd data
   return ('_receive command')
-}
-
-to flush {
-  local 'var' 0
-  repeatUntil (('[serial:available]') > 0) {
-    time = ('[serial:read]')
-  }
 }
 
 to init {
