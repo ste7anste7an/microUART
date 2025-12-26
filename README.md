@@ -13,6 +13,8 @@ The following types are supported:
 
 ```
 <tot_len> <PREAMBLE> <len_cmd> <cmd> [<data_type> <data_len> <data>]
+```
+
 with
 - tot_len: total length of frame
 - PREAMBLE: uniq preamble: '<$MU'
