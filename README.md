@@ -3,6 +3,9 @@
 This library is a stripped-down version of the **UARTRemote** protocol, adapted for **MicroBlocks**.
 It provides a simple, reliable command-based communication protocol over UART.
 
+## UARTDevice
+This library deploys the Pybricks `UARTDevice` on the Lego hub side. This is an option that is not standard available in the firmwares of the Pybricks hubs. Therefore, you will find firmwares supporting `UARTDevice` in the `pybricks_firmware` directory for EV3, Prime hub and Technic hub. 
+
 ## Supported Data Types
 
 The following data types are supported:
