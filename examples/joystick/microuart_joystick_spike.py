@@ -8,13 +8,13 @@ hub = PrimeHub()
 
 
 
-from microuart import MicroUART
+from microremote import MicroRemote
 
-uu=MicroUART(Port.A)
+ur=MicroRemote(Port.A)
 
 
 while True:
-    ack, resp = uu.call('joy')
+    ack, resp = ur.call('joy')
     x,y,pressed = resp
     print(x,y,pressed)
     hub.display.off()
@@ -23,8 +23,8 @@ while True:
     but = hub.buttons.pressed()
     if Button.LEFT in but:
         print('left')
-        uu.call('led',-1)
+        ur.call('led',-1)
     elif Button.RIGHT in but:
-        uu.call('led',1)
+        ur.call('led',1)
         print('right')
     wait(10)

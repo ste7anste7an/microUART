@@ -1,7 +1,7 @@
-from microuart import MicroUART
 from time import ticks_ms,sleep_ms
-u = MicroUART()   # UART1, RX=16, TX=17
+from microremote import MicroRemote
 
+ur = MicroRemote()
 
 def test(a,b):
     print("test",a,b)
@@ -9,7 +9,7 @@ def test(a,b):
 
 i=0
 while True:
-    u.process()
+    ur.process()
     i+=1
     if i> 1000:
         i=0

@@ -1,4 +1,4 @@
-# UARTRemote for MicroBlocks (MicroUART)
+# UARTRemote for MicroBlocks (MicroRemote)
 
 This library is a stripped-down version of the **UARTRemote** protocol, adapted for **MicroBlocks**.
 It provides a simple, reliable command-based communication protocol over UART.

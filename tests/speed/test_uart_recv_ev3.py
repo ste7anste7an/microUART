@@ -6,34 +6,19 @@ from pybricks.tools import wait, StopWatch
 
 hub = EV3Brick()
 
-from microuart import MicroUART
+from microremote import MicroRemote
 
-uu=MicroUART(Port.S2,wait_recv=10000)
-print(uu.decode(b'\x03cmdS\x03catN\x03123'))
-
-# i=0
-# s=b'\x40'+bytearray([i+65 for i in range(0x40)])
-# while True:
-#     send_str(i)
-#     print(i)
-#     i+=1
-#     i%=32
-#     wait(100)
+ur = MicroRemote(Port.S2, wait_recv=10000)
+print(ur.decode(b'\x03cmdS\x03catN\x03123'))
 
 def test(a,b):
     print("test",a,b)
     return a==b,a+b,a*3
 
-#uu.send_command('test',123,12)
 i=0
 while True:
-    #data=uu.receive_bytes()
-    #data=uu.receive_command()
-    #uu.send_command('test',i,i+2)
-    uu.process()
-    #print(i)#,uu.decode(data))
+    ur.process()
     i+=1
     if i> 1000:
         i=0
-    #wait(10)
     

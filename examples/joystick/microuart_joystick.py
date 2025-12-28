@@ -6,14 +6,14 @@ from pybricks.tools import wait, StopWatch
 
 hub = EV3Brick()
 
-from microuart import MicroUART
+from microremote import MicroRemote
 
-uu=MicroUART(Port.S2)
+ur=MicroRemote(Port.S2)
 
 hub.screen.clear()
 
 while True:
-    ack, resp = uu.call('joy')
+    ack, resp = ur.call('joy')
     x,y,pressed = resp
     print(x,y,pressed)
     hub.screen.draw_circle(x*178//256,128-y//2,2,True)

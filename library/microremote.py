@@ -1,5 +1,5 @@
 # ============================================================
-#  MicroUART – unified Pybricks + MicroPython ESP32 library
+#  MicroRemote – unified Pybricks + MicroPython ESP32 library
 # ============================================================
 
 import __main__
@@ -66,10 +66,10 @@ PREAMBLE = b'<$MU'
 
 
 # ============================================================
-#  MicroUART
+#  MicroRemote
 # ============================================================
 
-class MicroUART:
+class MicroRemote:
     def __init__(
         self,
         port_or_uart=1,
@@ -274,7 +274,7 @@ p = None
 
 def init(port):
     global p
-    p = MicroUART(eval("Port." + port))
+    p = MicroRemote(eval("Port." + port))
     return p
 
 

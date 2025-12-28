@@ -24,7 +24,7 @@ to joy {}
 }
 
 
-module microuart
+module microremote
 author Ste7an
 version 1 0 
 description 'Communication library with MicroBlocks using the hubs
