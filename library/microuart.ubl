@@ -1,4 +1,4 @@
-module microuart
+module microremote
 author Ste7an
 version 1 0 
 description 'Lightweigt Communication library with PyBricks UARTDevice devices.'
